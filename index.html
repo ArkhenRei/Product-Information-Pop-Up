@@ -8,11 +8,17 @@
     <title>Product Information Pop-Up</title>
   </head>
   <body>
-    <button data-modal-target="#modal">Show Product Info</button>
+    <button data-modal-target="#modal" class="pop-up-button">Show Product Info</button>
+
+    <section class="container content-section">
+      <h2 class="section-header">CART</h2>
+      <div class="cart-items">
+      </div>
+    </section>
 
     <div class="modal" id="modal">
       <div class="modal-header">
-        <div class="product-name">Product Name</div>
+        <div class="product-name">VANS SH-8 HI</div>
         <div class="product-price">$99.99</div>
       </div>
       <div class="modal-body">
@@ -25,5 +31,9 @@
       </div>
     </div>
     <div id="overlay"></div>
+
+    <div class="notf-modal">
+      <div class="modal-body">Item added to cart.</div>
+    </div>
   </body>
 </html>

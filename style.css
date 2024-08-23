@@ -6,30 +6,53 @@
 
 html,
 body {
-  height: 100%;
+  height: 3000px;
   margin: 0;
 }
 
-.pop-up-button button {
-  height: 100px;
-  width: 200px;
+.pop-up-button {
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #4e57ef;
+  border-color: #4e57ef;
 }
 
-.modal {
+.pop-up-button:hover {
+  color: #fff;
+  background-color: #4e57ef;
+  border-color: #4e57ef;
+}
+
+.modal,
+.notf-modal {
   position: fixed;
   bottom: 0;
   right: 0;
   transform: translate(-10%, -40%) scale(0);
-  border: 1px solid black;
+  border: 0;
   border-radius: 10px;
+  box-shadow: 3px 4px 0px 0px #4e57ef;
   z-index: 10;
   background-color: white;
   width: 400px;
   max-width: 80%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.modal.active {
-	transform: translate(-10%, -40%) scale(1);
+.modal.active,
+.notf-modal.active {
+  transform: translate(-10%, -40%) scale(1);
 }
 
 .modal-header {
@@ -43,12 +66,12 @@ body {
 .modal-header .product-name {
   font-size: 1.5rem;
   font-weight: bold;
-	color: #374151;
+  color: #374151;
 }
 
 .product-price {
-	font-size: 1.25rem;
-	color: #6B7280;
+  font-size: 1.25rem;
+  color: #6b7280;
 }
 
 .modal-body {
@@ -68,7 +91,7 @@ body {
 .product-info {
   font-weight: bold;
   font-size: 1.2rem;
-	color: #6B7280;
+  color: #6b7280;
 }
 
 .product-info span {
@@ -89,28 +112,32 @@ body {
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  color: #0d6efd;
-  border-color: #0d6efd;
+  color: #4e57ef;
+  border-color: #4e57ef;
 }
 
 .add-to-cart-button:hover {
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
+  color: #fff;
+  background-color: #4e57ef;
+  border-color: #4e57ef;
 }
 
 #overlay {
-	position: fixed;
-	opacity: 0;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background-color: rgba(0, 0, 0, .5);
-	pointer-events: none;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
 
 #overlay.active {
-	opacity: 1;
-	pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.section-header {
+  font-family: Arial, Helvetica, sans-serif;
 }
