@@ -1,42 +1,58 @@
-const openModalButtons = document.querySelectorAll("[data-modal-target]");
-const overlay = document.getElementById("overlay");
-const addToCartButton = document.querySelector(".add-to-cart-button");
+function addToCart() {
+  const modal = document.createElement("div");
+  modal.className = "modal";
+  modal.id = "modal";
 
-openModalButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const modal = document.querySelector(button.dataset.modalTarget);
-    openModal(modal);
-  });
-});
+  const modalHeader = document.createElement("div");
+  modalHeader.className = "modal-header";
 
-overlay.addEventListener("click", () => {
-  const modals = document.querySelectorAll(".modal.active, .notf-modal.active");
-  modals.forEach((modal) => {
-    closeModal(modal);
-  });
-});
+  const productName = document.createElement("div");
+  productName.className = "product-name";
+  productName.textContent = "VANS SH-8 HI";
 
-addToCartButton.addEventListener("click", addToCartClicked);
+  const productPrice = document.createElement("div");
+  productPrice.className = "product-price";
+  productPrice.textContent = "$99.99";
 
-function openModal(modal) {
-  if (modal == null) return;
-  modal.classList.add("active");
+  const addToCartNotf = document.createElement("div");
+  addToCartNotf.className = "addToCart-notf";
+  addToCartNotf.textContent = "Item added to cart.";
+
+  modalHeader.appendChild(addToCartNotf);
+  modalHeader.appendChild(productName);
+  modalHeader.appendChild(productPrice);
+
+  const modalBody = document.createElement("div");
+  modalBody.className = "modal-body";
+
+  const productInfo = document.createElement("div");
+  productInfo.className = "product-info";
+
+  const size = document.createElement("div");
+  size.className = "size";
+  size.innerHTML = "<span>Size:</span> 4";
+
+  const color = document.createElement("div");
+  color.className = "color";
+  color.innerHTML = "<span>Color:</span> Black";
+
+  const quantity = document.createElement("div");
+  quantity.className = "quantity";
+  quantity.innerHTML = "<span>Quantity:</span> 1";
+
+  productInfo.appendChild(size);
+  productInfo.appendChild(color);
+  productInfo.appendChild(quantity);
+
+  modalBody.appendChild(productInfo);
+
+  const overlay = document.createElement("div");
+  overlay.id = "overlay";
   overlay.classList.add("active");
-}
 
-function closeModal(modal) {
-  if (modal == null) return;
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
-}
+  modal.appendChild(modalHeader);
+  modal.appendChild(modalBody);
 
-function addToCartClicked() {
-  const cartItems = document.querySelector(".cart-items");
-  const newItem = document.createElement("div");
-  const itemInfo = document.createTextNode("VANS SH-8 HI $99.99");
-  newItem.appendChild(itemInfo);
-  cartItems.appendChild(newItem);
-  
-  const notfModal = document.querySelector(".notf-modal")
-  openModal(notfModal);
+  document.body.appendChild(modal);
+  document.body.appendChild(overlay);
 }
